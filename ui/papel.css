@@ -1,0 +1,101 @@
+/* UI Fit — estilo "Cómic Papel" (base elegida 2026-10-06) */
+:root {
+  --bg: #E9DFCB;        /* fondo papel */
+  --paper: #FAF6EC;     /* paneles */
+  --ink: #1C1C1C;       /* tinta */
+  --ink2: #5E574B;      /* texto secundario */
+  --red: #D7372A;       /* acento */
+  --red-text: #C42E22;  /* acento como texto sobre papel */
+  --red-soft: #FF8A7F;  /* acento sobre tinta */
+  --muted: #C8BFAE;
+  --soft: #E3DCCD;
+  --seg: #B3A890;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); }
+body { font-family: 'Space Mono', monospace; color: var(--ink); }
+a { color: inherit; }
+button { font: inherit; color: inherit; cursor: pointer; }
+
+.screen { width: 390px; height: 844px; margin: 0; position: relative; overflow: hidden; padding: 18px 12px 88px; display: flex; flex-direction: column; gap: 10px; background: var(--bg); }
+
+/* Tipografía */
+.anton { font-family: 'Anton', sans-serif; font-weight: 400; letter-spacing: .3px; }
+.head { display: flex; flex-direction: column; gap: 2px; padding: 0 4px; }
+.title { margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 64px; line-height: .95; letter-spacing: -.5px; text-transform: uppercase; }
+.title.sm { font-size: 54px; }
+.title .dot { color: var(--red); }
+.h2 { margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 22px; letter-spacing: .5px; text-transform: uppercase; }
+.mini { font-size: 11px; letter-spacing: .5px; }
+.micro { font-size: 9px; font-weight: 700; letter-spacing: 1px; }
+.b { font-weight: 700; }
+.muted { color: var(--ink2); }
+.pct { font-size: 22px; color: var(--red-text); }
+.big { font-size: 58px; line-height: .9; }
+.big small { font-size: 28px; }
+.hl { color: var(--red-soft); }
+.back { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; min-height: 24px; }
+
+/* Layout */
+.row { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.row.end { align-items: flex-end; }
+.row.base { align-items: baseline; }
+.grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.grow { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+/* Paneles */
+.panel { background-color: var(--paper); background-image: radial-gradient(rgba(0,0,0,.06) 1px, transparent 1.2px); background-size: 5px 5px; position: relative; }
+.outline { border: 2px solid var(--ink); }
+.pad { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+.halftone { background-image: radial-gradient(var(--ink) 1.3px, transparent 1.6px); background-size: 7px 7px; }
+.corner { position: absolute; top: 0; right: 0; width: 110px; height: 70px; opacity: .18; pointer-events: none; }
+.strip { background: var(--ink); color: var(--paper); padding: 6px 14px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.strip h2 { margin: 0; font-family: 'Anton', sans-serif; font-weight: 400; font-size: 18px; letter-spacing: .5px; }
+.stat { padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; }
+.stat .n { font-family: 'Anton', sans-serif; font-size: 28px; line-height: 1.05; white-space: nowrap; }
+.grid3 .stat .n { font-size: 24px; }
+
+/* En pantallas grandes (al abrir el HTML en el navegador) se centra como un teléfono */
+@media (min-width: 640px) {
+  body { padding: 32px 0; background: #D9CEB6; }
+  .screen { margin: 0 auto; box-shadow: 8px 8px 0 var(--ink); outline: 2px solid var(--ink); }
+}
+
+/* Etiquetas y botones */
+.tag { align-self: flex-start; display: inline-block; padding: 3px 8px; background: var(--ink); color: var(--paper); font-size: 10px; font-weight: 700; letter-spacing: 1px; white-space: nowrap; }
+.tag.red { background: var(--red); color: #fff; }
+.tag.line { background: transparent; color: var(--ink); border: 1.5px solid var(--ink); }
+.btn { height: 44px; border: 0; background: var(--ink); color: var(--paper); font-family: 'Anton', sans-serif; font-size: 16px; letter-spacing: .5px; padding: 0 14px; display: inline-flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; }
+.btn.ghost { background: transparent; border: 2px solid var(--ink); color: var(--ink); }
+.btn.red { background: var(--red); color: #fff; }
+.btn svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: square; }
+.iconbtn { width: 44px; height: 44px; border: 2px solid var(--ink); background: transparent; display: inline-flex; align-items: center; justify-content: center; padding: 0; text-decoration: none; }
+.iconbtn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: square; }
+
+/* Barra de progreso por bloques */
+.segbar { height: 18px; display: flex; gap: 3px; }
+.segbar i { flex: 1; border: 1px solid var(--seg); }
+.segbar i.on { background: var(--red); border-color: var(--red); }
+
+/* Racha: meses en cuadritos */
+.months { padding: 12px 14px; display: flex; justify-content: space-between; }
+.month { display: flex; flex-direction: column; gap: 6px; }
+.month > span { font-family: 'Anton', sans-serif; font-size: 14px; }
+.cells { display: grid; grid-template-columns: repeat(7, 10px); gap: 4px; }
+.cells i { width: 10px; height: 10px; border: 1px solid var(--muted); }
+.cells i.b { border-color: transparent; }
+.cells i.d { background: var(--ink); border-color: var(--ink); }
+.cells i.t { background: var(--red); border-color: var(--ink); }
+.cells i.f { border-color: var(--soft); }
+
+/* Panel "hoy toca" */
+.today { background: var(--red); color: #fff; padding: 10px 10px 10px 14px; display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.today .num { font-size: 48px; line-height: 1; }
+
+/* Navegación inferior */
+.nav { position: absolute; left: 0; right: 0; bottom: 0; height: 78px; padding: 8px 12px 14px; background: var(--bg); border-top: 2px solid var(--ink); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; }
+.nav a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; text-decoration: none; font-size: 9px; font-weight: 700; letter-spacing: 1px; }
+.nav a.on { background: var(--red); color: #fff; }
+.nav svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: square; }

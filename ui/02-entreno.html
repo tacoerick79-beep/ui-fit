@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=390">
+<title>UI Fit — Entreno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="papel.css">
+<style>
+  .cal { padding: 10px 14px 12px; display: flex; flex-direction: column; gap: 6px; }
+  .dow, .calgrid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+  .dow span { text-align: center; font-size: 10px; font-weight: 700; color: var(--ink2); }
+  .c { height: 38px; display: flex; align-items: center; justify-content: center; font-family: 'Anton', sans-serif; font-size: 15px; border: 1.5px solid var(--muted); }
+  .c.b { border-color: transparent; }
+  .c.d { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .c.sel { background: var(--red); color: #fff; border: 2px solid var(--ink); box-shadow: 3px 3px 0 var(--ink); }
+  .strip .iconbtn { width: 44px; height: 36px; border: 0; color: var(--paper); }
+  .key { display: flex; gap: 14px; align-items: center; }
+  .key i { display: inline-block; width: 10px; height: 10px; margin-right: 4px; vertical-align: -1px; }
+  .chip { padding: 3px 8px; border: 1.5px solid var(--ink); font-size: 10px; font-weight: 700; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+<main class="screen">
+
+  <header class="head">
+    <div class="row mini"><span>STATS · SEPTIEMBRE</span><span class="tag">5 SEMANAS DE RACHA</span></div>
+    <h1 class="title sm">Entreno<span class="dot">.</span></h1>
+  </header>
+
+  <div class="grid3">
+    <div class="outline stat"><span class="n">17</span><span class="micro">ENTRENOS</span></div>
+    <div class="outline stat"><span class="n">12H 28M</span><span class="micro">TIEMPO</span></div>
+    <div class="outline stat"><span class="n">6,970</span><span class="micro">KCAL</span></div>
+  </div>
+
+  <section class="panel">
+    <div class="strip" style="padding: 0 4px">
+      <button class="iconbtn" aria-label="Mes anterior"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <h2>SEPTIEMBRE 2026</h2>
+      <button class="iconbtn" aria-label="Mes siguiente"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    </div>
+    <div class="cal">
+      <div class="dow"><span>L</span><span>M</span><span>X</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="calgrid" id="cal"></div>
+      <div class="key micro" style="margin-top: 4px">
+        <span><i style="background: var(--ink)"></i>ENTRENÉ</span>
+        <span><i style="background: var(--red); outline: 1.5px solid var(--ink)"></i>SELECCIONADO</span>
+        <span style="margin-left: auto">17 / 30 DÍAS</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="strip">
+      <h2>MAR 29 SEP</h2>
+      <span class="tag red">DÍA 2</span>
+    </div>
+    <div class="pad" style="padding-top: 10px">
+      <span class="anton" style="font-size: 26px; line-height: 1">ESPALDA + BÍCEPS</span>
+      <div class="grid3">
+        <div><span class="anton" style="font-size: 26px">410</span> <span class="micro">KCAL</span></div>
+        <div><span class="anton" style="font-size: 26px">44</span> <span class="micro">MIN</span></div>
+        <div><span class="anton" style="font-size: 26px">6</span> <span class="micro">EJERCICIOS</span></div>
+      </div>
+      <div style="display: flex; gap: 6px; flex-wrap: wrap">
+        <span class="chip">ESPALDA</span><span class="chip">BÍCEPS</span><span class="chip">ANTEBRAZO</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="grid2">
+    <button class="btn red">+ REGISTRAR HOY</button>
+    <a class="btn ghost" href="03-rutinas.html">MIS RUTINAS <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+  </div>
+
+  <nav class="nav" data-active="entreno" aria-label="Principal"></nav>
+</main>
+<script src="papel.js"></script>
+<script>
+  (function () {
+    var y = 2026, m = 8, sel = 29;
+    var off = (new Date(y, m, 1).getDay() + 6) % 7;
+    var n = new Date(y, m + 1, 0).getDate();
+    var html = '';
+    for (var k = 0; k < off; k++) html += '<span class="c b"></span>';
+    for (var d = 1; d <= n; d++) {
+      var c = d === sel ? 'sel' : (trained(y, m, d) ? 'd' : '');
+      html += '<span class="c ' + c + '">' + d + '</span>';
+    }
+    document.getElementById('cal').innerHTML = html;
+  })();
+</script>
+</body>
+</html>

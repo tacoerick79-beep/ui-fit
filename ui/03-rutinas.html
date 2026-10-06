@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=390">
+<title>UI Fit — Rutinas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="papel.css">
+<style>
+  .plan { display: flex; flex-direction: column; }
+  .prow { display: flex; align-items: center; gap: 10px; padding: 4px 4px 4px 14px; border-top: 2px solid var(--ink); }
+  .prow:first-child { border-top: 0; }
+  .prow .n { font-family: 'Anton', sans-serif; font-size: 26px; width: 32px; }
+  .prow .name { font-family: 'Anton', sans-serif; font-size: 18px; line-height: 1.1; }
+  .prow .dia { font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+  .prow .iconbtn { border: 0; }
+  .prow.on { background: var(--red); color: #fff; }
+  .ex { padding: 8px 14px 10px 56px; display: flex; flex-direction: column; gap: 4px; border-top: 2px solid var(--ink); }
+  .ex div { display: grid; grid-template-columns: 1fr 44px 64px; font-size: 11px; }
+  .ex div b:last-child { text-align: right; }</style>
+</head>
+<body>
+<main class="screen">
+
+  <header class="head">
+    <a class="back" href="02-entreno.html">← ENTRENO</a>
+    <div class="row end">
+      <h1 class="title sm">Rutinas<span class="dot">.</span></h1>
+      <div style="display: flex; gap: 6px; padding-bottom: 6px">
+        <button class="iconbtn" aria-label="Ajustar rutinas"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><rect x="14" y="4" width="4" height="6"/><rect x="8" y="14" width="4" height="6"/></svg></button>
+        <button class="iconbtn" aria-label="Agregar día" style="background: var(--ink); color: var(--paper)"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="grid2">
+    <div class="panel outline stat" style="gap: 4px">
+      <span class="tag">PESO CORPORAL</span>
+      <span class="n" style="font-size: 34px">200 <span style="font-size: 18px">LBS</span></span>
+      <span class="micro muted">HACE 31 MIN</span>
+    </div>
+    <div class="panel outline stat" style="gap: 4px">
+      <span class="tag">VOLUMEN 7 DÍAS</span>
+      <span class="n" style="font-size: 34px">3,200 <span style="font-size: 18px">LBS</span></span>
+      <span class="micro muted">+8% VS SEMANA PASADA</span>
+    </div>
+  </div>
+
+  <section class="panel outline">
+    <div class="strip">
+      <h2>PLAN SEMANAL</h2>
+      <span class="micro">4 DÍAS · TOCA PARA EDITAR</span>
+    </div>
+    <div class="plan">
+      <div class="prow">
+        <span class="n">01</span>
+        <div class="grow"><span class="name">PECHO + TRÍCEPS</span><span class="micro muted">6 EJERCICIOS</span></div>
+        <span class="dia">LUN</span>
+        <button class="iconbtn" aria-label="Editar día 1"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button>
+      </div>
+      <div class="prow on">
+        <span class="n">02</span>
+        <div class="grow"><span class="name">ESPALDA + BÍCEPS</span><span class="micro">HOY · 3 DE 6 EJERCICIOS</span></div>
+        <span class="dia">MAR</span>
+        <button class="iconbtn" aria-label="Editar día 2" style="color: #fff"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button>
+      </div>
+      <div class="ex">
+        <div><span>Jalón al pecho</span><b>4×10</b><b>120 lbs</b></div>
+        <div><span>Remo con barra</span><b>4×8</b><b>135 lbs</b></div>
+        <div><span>Curl con barra</span><b>3×12</b><b>60 lbs</b></div>
+      </div>
+      <div class="prow">
+        <span class="n">03</span>
+        <div class="grow"><span class="name">PIERNA</span><span class="micro muted">7 EJERCICIOS</span></div>
+        <span class="dia">JUE</span>
+        <button class="iconbtn" aria-label="Editar día 3"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button>
+      </div>
+      <div class="prow">
+        <span class="n">04</span>
+        <div class="grow"><span class="name">HOMBRO + CORE</span><span class="micro muted">5 EJERCICIOS</span></div>
+        <span class="dia">VIE</span>
+        <button class="iconbtn" aria-label="Editar día 4"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="strip">
+      <h2>ÚLTIMOS 3 MESES</h2>
+      <span class="mini b">RACHA <span class="hl">5 SEMANAS</span></span>
+    </div>
+    <div class="months">
+      <div class="month"><span>AGO</span><div class="cells" data-month="2026-08"></div></div>
+      <div class="month"><span>SEP</span><div class="cells" data-month="2026-09"></div></div>
+      <div class="month"><span>OCT</span><div class="cells" data-month="2026-10"></div></div>
+    </div>
+  </section>
+
+  <nav class="nav" data-active="entreno" aria-label="Principal"></nav>
+</main>
+<script src="papel.js"></script>
+</body>
+</html>

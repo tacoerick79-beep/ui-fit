@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=390">
+<title>UI Fit — Inicio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="papel.css">
+</head>
+<body>
+<main class="screen">
+
+  <header class="head">
+    <div class="row mini"><span>MAR 06 OCT</span><span class="tag red">DÍA 02</span></div>
+    <h1 class="title">Sigue<span class="dot">.</span> Erick</h1>
+  </header>
+
+  <section class="panel pad">
+    <div class="halftone corner" aria-hidden="true"></div>
+    <span class="tag">SALDO DISPONIBLE</span>
+    <div class="row end">
+      <span class="anton big">$2,800<small>.00</small></span>
+      <div class="mini" style="display: flex; flex-direction: column; gap: 2px; text-align: right">
+        <span>ING <b>+3,500</b></span>
+        <span>GAS <b>−1,025</b></span>
+      </div>
+    </div>
+    <div class="grid3">
+      <button class="btn">+ INGRESO</button>
+      <button class="btn">− GASTO</button>
+      <a class="btn ghost" href="04-finanzas.html">FINANZAS</a>
+    </div>
+  </section>
+
+  <a class="outline pad" href="05-metas.html" style="text-decoration: none">
+    <div class="row base">
+      <h2 class="h2">Viaje a Japón</h2>
+      <span class="anton pct">64%</span>
+    </div>
+    <div class="segbar" data-pct="64"></div>
+    <span class="mini">CARGANDO $3,200 / $5,000 — FALTAN $1,800</span>
+  </a>
+
+  <section class="panel">
+    <div class="strip">
+      <h2>RACHA</h2>
+      <span class="mini b"><span class="hl">5 SEMANAS</span> SIN FALLAR</span>
+    </div>
+    <div class="months">
+      <div class="month"><span>AGO</span><div class="cells" data-month="2026-08"></div></div>
+      <div class="month"><span>SEP</span><div class="cells" data-month="2026-09"></div></div>
+      <div class="month"><span>OCT</span><div class="cells" data-month="2026-10"></div></div>
+    </div>
+  </section>
+
+  <div class="grid2">
+    <div class="outline stat">
+      <span class="micro muted">ESTA SEMANA</span>
+      <span class="n">1 / 4</span>
+      <span class="micro">ENTRENOS</span>
+    </div>
+    <div class="outline stat">
+      <span class="micro muted">PESO CORPORAL</span>
+      <span class="n">200 LBS</span>
+      <span class="micro">−2 LBS ESTE MES</span>
+    </div>
+  </div>
+
+  <section class="today">
+    <span class="anton num">02</span>
+    <div class="grow">
+      <span class="micro">HOY TOCA</span>
+      <span class="anton" style="font-size: 20px; line-height: 1.1">ESPALDA + BÍCEPS</span>
+      <span class="mini">6 ejercicios · ~45 min</span>
+    </div>
+    <a class="btn" href="03-rutinas.html">VAMOS <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+  </section>
+
+  <nav class="nav" data-active="inicio" aria-label="Principal"></nav>
+</main>
+<script src="papel.js"></script>
+</body>
+</html>
